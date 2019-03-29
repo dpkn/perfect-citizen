@@ -9,12 +9,30 @@ public class EnemyController : MonoBehaviour
     public float lookRadius = 10f;
     Transform target;
     NavMeshAgent agent;
+    Light headLight;
+    Behaviour halo;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         target = PlayerManager.instance.player.transform;
+
+        headLight = GetComponentInChildren<Light>();
+      //  halo = (Behaviour)gameObject.GetComponentInChildren("Halo");
+
+    }
+
+    void turnOn()
+    {
+        headLight.enabled = true;
+       // halo.enabled = true;
+    }
+
+    void turnOff()
+    {
+        headLight.enabled = false;
+        // halo.enabled = false;
     }
 
     // Update is called once per frame
@@ -24,6 +42,7 @@ public class EnemyController : MonoBehaviour
         if(distance <= lookRadius)
         {
             agent.SetDestination(target.position);
+            turnOn();
 
             if (distance <= agent.stoppingDistance)
             {

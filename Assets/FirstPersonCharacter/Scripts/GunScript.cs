@@ -4,9 +4,9 @@ public class GunScript : MonoBehaviour
 {
 
     public float damage = 10f;
-    public float range = 100f;
+    public float range = 50f;
     public float impactForce = 30f;
-    public float fireRate = 15f;
+    public float fireRate = 6f;
 
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
@@ -29,14 +29,13 @@ public class GunScript : MonoBehaviour
     {
         RaycastHit hit;
 
-        muzzleFlash.Play();
-
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
             Enemy enemy = hit.transform.GetComponent<Enemy>();
+            muzzleFlash.Play();
 
-            if(enemy != null)
+            if (enemy != null)
             {
                 enemy.TakeDamage(damage);
                 Debug.Log("HITENENMY");
