@@ -1868,5 +1868,10 @@ PrefabInstance:
       propertyPath: turnedOnMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 31ee46141801949c49472a34aae1156f, type: 2}
+    - target: {fileID: 8790071167630879613, guid: f04cba09c85dc4226a734c85bea3140c,
+        type: 3}
+      propertyPath: scene
+      value: Level 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f04cba09c85dc4226a734c85bea3140c, type: 3}
